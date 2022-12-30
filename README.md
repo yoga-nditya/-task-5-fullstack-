@@ -1,3 +1,13 @@
+- get data 
+![ss get](https://user-images.githubusercontent.com/108383702/210097889-2e70a558-2592-4cf1-826e-23ac52cb17e0.png)
+
+
+- post data 
+
+
+![ss post](https://user-images.githubusercontent.com/108383702/210097897-2112e0ec-7489-4f1a-a2de-800a13b69cc7.png)
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

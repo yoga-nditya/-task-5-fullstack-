@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
-use Illuminate\Http\Response;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -19,11 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::all();
+        $category = Category::all();
+        $categoryResource = CategoryResource::collection($category);
 
-        $result = CategoryResource::collection($data);
-
-        return $this->sendResponse($result, 'Sucsess get categories');
+        return $this->sendResponse($categoryResource, "Successfull get category");
     }
 
     /**
@@ -35,11 +32,10 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = new CategoryResource(Category::create($request->validated()));
-
-        return $this->sendResponse($data, "Sucsess add");
+        return $this->sendResponse($data, "Successfull store");
     }
 
-    /**
+    /**   //
      * Display the specified resource.
      *
      * @param  \App\Models\Category  $category
@@ -47,7 +43,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-       $cek = Category::findOrFail($category->id);
+        $cek = Category::findOrFail($category);
         if (!$cek) {
             abort(404, 'Object not found');
         }
@@ -65,7 +61,7 @@ class CategoryController extends Controller
      */
     public function update(StoreCategoryRequest $request, Category $category)
     {
-        $category->update($request->validate());
+        $category->update($request->validated());
 
         $result = new CategoryResource($category);
 
